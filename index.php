@@ -1,10 +1,18 @@
 <?php
 session_start();
-include ('server.php');
+include('server.php');
 
-if(!isset($_SESSION['username'])) {
+    if(!isset($_SESSION['username'])) {
     header("location: login.php");
-}
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        header("location: login.php");
+    }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,11 +54,11 @@ if(!isset($_SESSION['username'])) {
                     <li>Welcome <strong><?php echo $_SESSION['username']; ?></strong></li>
                     <li><a href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>ตะกร้า</a></li>
                     <li><a href="my_orders.php"><i class="fa fa-list-alt" aria-hidden="true"></i>ดูรายการสินค้า</a></li>
-                    <li><a href="#" style="color: red;">logout</li>
-                        <?php else :  ?>
+                    <li><a href="index.php?logout=<?php echo $_SESSION['username']; ?>"><i class="fa fa">style="color: red;">logout</li>
+                    <?php else :  ?>
                     <li><a href="login.php" >login</a></li>
                     <li><a href="register.php" >register</a></li>
-                    <?php endif; ?>
+                    <?php endif ?>
                 </ul>
             </div> <!-- nav-c -->
       </div>
@@ -74,12 +82,12 @@ if(!isset($_SESSION['username'])) {
 
 <div class="product-c">
 <br><br>
-  <?php if(isset($_SESSION['success'])) : ?>
+                <?php if(isset($_SESSION['success'])) : ?>
                     <div class="success">
                         <h3>
                             <?php
-                            echo $_SESSION['success'];
-                            unset($_SESSION['success']);
+                                echo $_SESSION['success'];
+                                unset($_SESSION['success']);
                             ?>
                         </h3>
                     </div>

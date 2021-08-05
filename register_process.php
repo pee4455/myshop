@@ -1,10 +1,9 @@
 <?php
-
     session_start();
 
-        $user = "";
+        $username = "";
         $email = "" ;
-        $error = array();
+        $errors = array();
 
         include('server.php');
 
@@ -19,22 +18,22 @@
         $c_password = mysqli_real_escape_string($conn, $_POST['c_password']);  
 
         if(empty($username)) {
-            array_push($error, "Username is required");
+            array_push($errors, "Username is required");
         }
         if(empty($email)) {
-            array_push($error, "email is required");
+            array_push($errors, "email is required");
         }
         if(empty($phone)) {
-            array_push($error, "phone is required");
+            array_push($errors, "phone is required");
         }
         if(empty($address)) {
-            array_push($error, "address is required");
+            array_push($errors, "address is required");
         }
         if(empty($password)) {
-            array_push($error, "password is required");
+            array_push($errors, "password is required");
         }
         if ($password != $c_password) {
-            array_push($error, "password not match");
+            array_push($errors, "password not match");
         }
 
         $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
@@ -43,20 +42,20 @@
 
         if($user) {
             if($user['username'] === $username || $user['email'] === $email) {
-                array_push($error, "email is used already ");
+                array_push($errors, "email is used already ");
                 $_SESSION['error'] = "email is used already";
-                header("Location: index.php");
+                header("location: register.php");
         }
     }
 
-        if(count($error) == 0) {
+        if(count($errors) == 0) {
             $password = md5($password); //encrypt the password before saving in the database
             $query = "INSERT INTO users (username, email, password, phone, address) 
                       VALUES('$username','$email','$password','$phone','$address')";
             mysqli_query($conn,$query);
                 $_SESSION['username'] = $username;
                 $_SESSION['success'] = "You login successfully ";
-                header("Location: index.php");
+                header("location: index.php");
         }
 }
 ?>
