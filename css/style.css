@@ -174,3 +174,13 @@ footer {
   background: #dff0d8;
   border-radius: 5px;
 }
+
+/* cart */
+table input,
+table textarea {
+  width: 100%;
+  padding: 0.5rem;
+}
+td {
+  padding: 0.5 rem;
+}
