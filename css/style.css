@@ -11,7 +11,7 @@
 }
 
 .nav-c {
-  padding: 2rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
@@ -36,11 +36,11 @@ ul.login li a {
 
 .content-c {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 200px 1fr;
 }
 
 .sidebar-c {
-  padding: 5rem;
+  padding: 1rem;
 }
 
 .sidebar-categories {
@@ -60,18 +60,18 @@ ul.login li a {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 2rem;
 }
 
 .product-items {
   text-align: center;
 }
 
-.product-item .pd-img {
+.product-items .pd-img {
   width: 100%;
 }
 
-.product-item .pd-img img {
+.product-items .pd-img img {
   width: 100%;
   height: 150px;
 }
@@ -112,6 +112,7 @@ footer {
   margin-top: 3rem;
   padding: 1rem;
   background: #333;
+  color: #fff;
 }
 
 /* login */

@@ -14,12 +14,13 @@
         if (empty($password)) {
                 array_push($errors, "password is required");
             }
-if(count($errors) == 0) {
+
+        if (count($errors) == 0) {
         $password = md5($password);
-        $query = "SELECT * from users WHERE username = '$username' AND password = '$password'";
+        $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' ";
         $result = mysqli_query($conn, $query);
 
-        if(mysqli_num_rows($result) == 1) {
+        if (mysqli_num_rows($result) == 1) {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "Your login successful";
             header("Location: index.php");
@@ -32,4 +33,5 @@ if(count($errors) == 0) {
 
     }
 
+var_dump($errors);
 ?>

@@ -72,7 +72,7 @@
                     <h1>Register - สมัครสมาชิก</h1>
                     <br>
                     <form action="register_process.php" method="post">
-                     <?php  include('errors.php'); ?> 
+                     <?php include('errors.php'); ?> 
                         <input type="text" name="username" placeholder="Enter your username" required >
                             <br>
                         <input type="text" name="email" placeholder="Enter your email" required >

@@ -2,7 +2,7 @@
     session_start();
 
         $username = "";
-        $email = "" ;
+        $email = "";
         $errors = array();
 
         include('server.php');
@@ -36,8 +36,8 @@
             array_push($errors, "password not match");
         }
 
-        $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email'";
-        $result = mysqli_query($conn,$user_check_query);
+        $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' ";
+        $result = mysqli_query($conn, $user_check_query);
         $user = mysqli_fetch_assoc($result);
 
         if($user) {
@@ -58,4 +58,6 @@
                 header("location: index.php");
         }
 }
+var_dump($errors);
+
 ?>

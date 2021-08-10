@@ -1,5 +1,5 @@
-<?php session_start(); 
-include ('server.php');
+<?php 
+session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ include ('server.php');
                     <li>Welcome <strong><?php echo $_SESSION['username']; ?></strong></li>
                     <li><a href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>ตะกร้า</a></li>
                     <li><a href="my_orders.php"><i class="fa fa-list-alt" aria-hidden="true">ดูรายการสินค้า</a></li>
-                    <li><a href="#" style="color: red;">logout</a></li>
+                    <li><a href="#">logout</a></li>
                     <?php else :  ?>
                     <li><a href="login.php" >login</a></li>
                     <li><a href="register.php" >register</a></li>
